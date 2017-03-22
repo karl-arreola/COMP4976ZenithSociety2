@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{28BC1703-19E6-4C14-8F80-A6C9EE9C925D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{26CB1C14-7888-4C75-BE8F-811B49396FA9}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ZenithWebsite", "src\ZenithWebsite\ZenithWebsite.xproj", "{89174CCB-03B9-4B83-8C5D-410F061C165B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89174CCB-03B9-4B83-8C5D-410F061C165B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89174CCB-03B9-4B83-8C5D-410F061C165B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89174CCB-03B9-4B83-8C5D-410F061C165B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89174CCB-03B9-4B83-8C5D-410F061C165B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{89174CCB-03B9-4B83-8C5D-410F061C165B} = {28BC1703-19E6-4C14-8F80-A6C9EE9C925D}
+	EndGlobalSection
+EndGlobal
