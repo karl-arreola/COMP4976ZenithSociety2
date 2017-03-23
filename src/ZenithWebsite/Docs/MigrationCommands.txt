@@ -1,2 +1,4 @@
 ﻿dotnet ef migrations add ActivityEventMigration
+dotnet ef migrations add AccountUserNameFirstNameLastNameMigration
+dotnet if midrations remove
 dotnet ef database update

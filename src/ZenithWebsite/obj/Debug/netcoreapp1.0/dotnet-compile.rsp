@@ -246,6 +246,8 @@ C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWeb
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWebsite\Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170322205725_ActivityEventMigration.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170322205725_ActivityEventMigration.Designer.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170323063731_AccountUserNameFirstNameLastNameMigration.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170323063731_AccountUserNameFirstNameLastNameMigration.Designer.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWebsite\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWebsite\Models\Activity.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\ZenithSociety2\src\ZenithWebsite\Models\ActivityEventSeedData.cs
