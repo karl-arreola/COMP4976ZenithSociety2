@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ZenithWebsite.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ZenithWebsite.Controllers
 {
@@ -18,12 +19,11 @@ namespace ZenithWebsite.Controllers
 
         public IActionResult Index()
         {
-            /*var events = _context.Event
-                          .Select(a => a.Activity)
+            var events = _context.Event
+                          .Include(a => a.Activity)
                           .OrderBy(a => a.DateFrom);
-           return View(events.ToList());*/
-
-            return View(_context.Event.ToList());
+            return View(events.ToList());
+            
         }
 
         public IActionResult Error()

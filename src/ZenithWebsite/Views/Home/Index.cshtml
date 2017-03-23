@@ -86,7 +86,8 @@
         {
             ViewBag.DateFrom = item.DateFrom.ToString();
             ViewBag.DateTo = item.DateTo.ToString();
-            ViewBag.LongDate = item.DateFrom.ToString();
+            //ViewBag.LongDate2 = item.DateFrom.ToLongDateString();
+            ViewBag.LongDate = String.Format("{0:dddd, MMMM d, yyyy}", item.DateFrom);  // "Sunday, March 9, 2008"
 
             if (day == item.DateFrom.DayOfWeek && item.IsActive)
             {
