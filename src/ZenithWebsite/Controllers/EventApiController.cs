@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ZenithWebsite.Models;
 using ZenithWebsite.Data;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,7 +25,7 @@ namespace ZenithWebsite.Controllers
         [HttpGet]
         public IEnumerable<Event> Get()
         {
-            return _context.Event.ToList();
+            return _context.Event.Include(a => a.Activity);
         }
 
         // GET api/values/5

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAADlo4fblUGEuTIyYMXyCNAAAAAAACAAAAAAAQZgAAAAEAACAAAAChjlv7A4e3WXF+OctIl8nb6rXHFriEwOyuhMXDxoqGuAAAAAAOgAAAAAIAACAAAABadPBMH9ocUdB8gpAC3V8vOuYZSkpC32O+4K+6pjaDp4AAAAByCNBx5EaNR9uqL+B89ujAxkAAxtAStoXAYK8B0j7SId4SLaW/BzXx1KxpCdNzJnjiwZIkcS5QHKaAS9B7ktj6JfkWWzrcs1kDWcLauAXOkbZHRvT6T/RFFwHX2hJ6djHuj2GV3EsneRxomyZkR+GVdOMa6YnvaxrICktlOic2f0AAAADsqAut04V92flIpx9lwH0uiCgqPPuZSOhGtbQEVTHUGqpgK69R75VuLqZoyad0BJjHsCqAcwk51RG61+QPkWYS</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:asn.database.windows.net,1433;Initial Catalog=asn;Persist Security Info=False;User ID=karl;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EfMigrations Include="ZenithWebsite.Data.ApplicationDbContext">
+      <Value>Server=tcp:asn.database.windows.net,1433;Initial Catalog=asn;Persist Security Info=False;User ID=karl;Password=Sport479;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
+    </EfMigrations>
+  </ItemGroup>
+</Project>
