@@ -17,16 +17,34 @@ namespace ZenithWebsite.Controllers
             this.userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            List<ApplicationUser> users = new List<ApplicationUser>();
+            /*List<ApplicationUser> users = new List<ApplicationUser>();
             users = userManager.Users.Select(u => new ApplicationUser
             {
                 UserName = u.UserName,
-                Email = u.Email
-            }).ToList();
+                Email = u.Email,
+                RolesAssigned = u.Roles
+            }).ToList();*/
 
-            return View(users);
+            var users = userManager.Users;
+
+            var usersList = new List<UserRoleView>();
+            foreach (ApplicationUser usr in users)
+            {
+                var roles = await userManager.GetRolesAsync(usr);
+                var userView = new UserRoleView()
+                {
+                    Id = usr.Id,
+                    UserName = usr.UserName,
+                    Email = usr.Email,
+                    RolesAssigned = roles
+                };
+                usersList.Add(userView);
+            }
+
+
+            return View(usersList);
         }
 
         /*[HttpGet]

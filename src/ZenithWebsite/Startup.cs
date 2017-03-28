@@ -94,7 +94,7 @@ namespace ZenithWebsite
             });
 
             ActivityEventSeedData.Initialize(context);
-            UserWithRoleSeedData.Initialize(context, app.ApplicationServices);
+            UserWithRoleSeedData.Initialize(context, app.ApplicationServices).Wait();
         }
     }
 }

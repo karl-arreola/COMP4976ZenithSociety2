@@ -250,12 +250,15 @@ C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\Z
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170322205725_ActivityEventMigration.Designer.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170323063731_AccountUserNameFirstNameLastNameMigration.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170323063731_AccountUserNameFirstNameLastNameMigration.Designer.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170328191718_UserRolesMigration.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Data\Migrations\20170328191718_UserRolesMigration.Designer.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\Activity.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ActivityEventSeedData.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ApplicationRole.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ApplicationUser.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\Event.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\UserRoleView.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\UserWithRoleSeedData.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\ForgotPasswordViewModel.cs
