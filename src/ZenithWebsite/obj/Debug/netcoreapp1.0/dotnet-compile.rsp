@@ -253,8 +253,10 @@ C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\Z
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\Activity.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ActivityEventSeedData.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ApplicationRole.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ApplicationUser.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\Event.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\UserWithRoleSeedData.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\ForgotPasswordViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\LoginViewModel.cs
@@ -263,7 +265,6 @@ C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\Z
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\SendCodeViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\VerifyCodeViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\AddPhoneNumberViewModel.cs
-C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\ApplicationRole.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\ChangePasswordViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\ConfigureTwoFactorViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\FactorViewModel.cs
