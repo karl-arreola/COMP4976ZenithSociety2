@@ -1,10 +1,10 @@
-@model ZenithWebsite.Models.ApplicationUser
+@model ZenithWebsite.Models.EditUserRoleView
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Add Roles";
 }
 
-<h2>Edit</h2>
+<h2>Add Roles</h2>
 
 <form asp-action="Edit">
     <div class="form-horizontal">
@@ -12,22 +12,15 @@
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="UserName" class="control-label col-md-2"></label>
+            <label class="control-label col-md-2">Role To Be Added</label>
             <div class="col-md-10">
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Email" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger" />
+                <select asp-for="RoleToBeAdded" class="form-control" asp-items="ViewBag.Roles"></select>
+                <span asp-validation-for="RoleToBeAdded" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Add" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -36,7 +29,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

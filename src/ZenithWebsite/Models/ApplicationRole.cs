@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ZenithWebsite.Models.ManageViewModels
+namespace ZenithWebsite.Models
 {
     public class ApplicationRole : IdentityRole
     {
+        public int UserCount { get; set; }
     }
 }

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using ZenithWebsite.Models;
 using ZenithWebsite.Models.AccountViewModels;
 using ZenithWebsite.Services;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ZenithWebsite.Controllers
 {
@@ -105,7 +106,7 @@ namespace ZenithWebsite.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -117,6 +118,10 @@ namespace ZenithWebsite.Controllers
                     //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
+
+                    //add member role
+                    await _userManager.AddToRoleAsync(user, "Member");
+
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
