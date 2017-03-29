@@ -1,4 +1,4 @@
-@model ZenithWebsite.Models.ApplicationUser
+@model ZenithWebsite.Models.UserRoleView
 
 @{
     ViewData["Title"] = "Delete";
@@ -10,22 +10,16 @@
 <div>
     <h4>Event</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NormalizedUserName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NormalizedUserName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
-    
     <form asp-action="Delete">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label class="control-label col-md-2">Role To Be Deleted</label>
+            <div class="col-md-10">
+                <select asp-for="RolesAssigned" class="form-control" asp-items="ViewBag.Roles"></select>
+                <span asp-validation-for="RolesAssigned" class="text-danger" />
+            </div>
+        </div>
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
             <a asp-action="Index">Back to List</a>

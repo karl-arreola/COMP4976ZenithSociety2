@@ -1,32 +1,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ZenithWebsite.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
+using ZenithWebsite.Data;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ZenithWebsite.Controllers
 {
     public class UsersController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly ApplicationDbContext _context;
 
-        public UsersController(UserManager<ApplicationUser> userManager)
+        public UsersController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             this.userManager = userManager;
+            _context = context;
         }
 
         public async Task<ActionResult> Index()
         {
-            /*List<ApplicationUser> users = new List<ApplicationUser>();
-            users = userManager.Users.Select(u => new ApplicationUser
-            {
-                UserName = u.UserName,
-                Email = u.Email,
-                RolesAssigned = u.Roles
-            }).ToList();*/
-
             var users = userManager.Users;
 
             var usersList = new List<UserRoleView>();
@@ -40,9 +38,9 @@ namespace ZenithWebsite.Controllers
                     Email = usr.Email,
                     RolesAssigned = roles
                 };
+
                 usersList.Add(userView);
             }
-
 
             return View(usersList);
         }
@@ -145,40 +143,33 @@ namespace ZenithWebsite.Controllers
                 }
             }
             return PartialView("_EditUser", model);
-        }
+        }*/
 
         [HttpGet]
-        public async Task<IActionResult> DeleteUser(string id)
+        public async Task<IActionResult> Delete(string id)
         {
-            string name = string.Empty;
-            if (!String.IsNullOrEmpty(id))
+            var user = await userManager.FindByIdAsync(id);
+            var roles = await userManager.GetRolesAsync(user);
+
+            var userView = new UserRoleView()
             {
-                ApplicationUser applicationUser = await userManager.FindByIdAsync(id);
-                if (applicationUser != null)
-                {
-                    name = applicationUser.Name;
-                }
-            }
-            return PartialView("_DeleteUser", name);
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                RolesAssigned = roles
+            };
+
+            ViewData["Roles"] = new SelectList(userView.RolesAssigned);
+
+            return View(userView);
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteUser(string id, FormCollection form)
+        public async Task<IActionResult> Delete(string id, ApplicationUser user)
         {
-            if (!String.IsNullOrEmpty(id))
-            {
-                ApplicationUser applicationUser = await userManager.FindByIdAsync(id);
-                if (applicationUser != null)
-                {
-                    IdentityResult result = await userManager.DeleteAsync(applicationUser);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                }
-            }
+            
             return View();
-        }*/
+        }
 
     }
 }

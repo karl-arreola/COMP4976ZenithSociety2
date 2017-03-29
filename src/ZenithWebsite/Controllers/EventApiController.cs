@@ -32,7 +32,7 @@ namespace ZenithWebsite.Controllers
         [HttpGet("{id}")]
         public Event Get(int id)
         {
-            return _context.Event.FirstOrDefault(s => s.EventId == id);
+            return _context.Event.SingleOrDefault(s => s.EventId == id);
         }
 
         // POST api/values
