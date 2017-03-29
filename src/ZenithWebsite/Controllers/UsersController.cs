@@ -9,28 +9,32 @@ using ZenithWebsite.Data;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace ZenithWebsite.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly UserManager<ApplicationUser> userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly ApplicationDbContext _context;
+        private readonly RoleManager<ApplicationRole> _roleManager;
 
-        public UsersController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+        public UsersController(UserManager<ApplicationUser> userManager, 
+            ApplicationDbContext context, RoleManager<ApplicationRole> roleManager)
         {
-            this.userManager = userManager;
+            _userManager = userManager;
             _context = context;
+            _roleManager = roleManager;
         }
 
         public async Task<ActionResult> Index()
         {
-            var users = userManager.Users;
+            var users = _userManager.Users;
 
             var usersList = new List<UserRoleView>();
             foreach (ApplicationUser usr in users)
             {
-                var roles = await userManager.GetRolesAsync(usr);
+                var roles = await _userManager.GetRolesAsync(usr);
                 var userView = new UserRoleView()
                 {
                     Id = usr.Id,
@@ -45,111 +49,66 @@ namespace ZenithWebsite.Controllers
             return View(usersList);
         }
 
-        /*[HttpGet]
-        public IActionResult Create()
-        {
-            UserViewModel model = new UserViewModel();
-            model.ApplicationRoles = roleManager.Roles.Select(r => new SelectListItem
-            {
-                Text = r.Name,
-                Value = r.Id
-            }).ToList();
-            return PartialView("_AddUser", model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create(ApplicationUser model)
-        {
-            if (ModelState.IsValid)
-            {
-                ApplicationUser user = new ApplicationUser
-                {
-                    Name = model.Name,
-                    UserName = model.UserName,
-                    Email = model.Email
-                };
-                IdentityResult result = await userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    ApplicationRole applicationRole = await roleManager.FindByIdAsync(model.ApplicationRoleId);
-                    if (applicationRole != null)
-                    {
-                        IdentityResult roleResult = await userManager.AddToRoleAsync(user, applicationRole.Name);
-                        if (roleResult.Succeeded)
-                        {
-                            return RedirectToAction("Index");
-                        }
-                    }
-                }
-            }
-            return View(model);
-        }
-
         [HttpGet]
-        public async Task<IActionResult> EditUser(string id)
+        public async Task<IActionResult> Edit(string id)
         {
-            EditUserViewModel model = new EditUserViewModel();
-            model.ApplicationRoles = roleManager.Roles.Select(r => new SelectListItem
-            {
-                Text = r.Name,
-                Value = r.Id
-            }).ToList();
+            var user = await _userManager.FindByIdAsync(id);
 
-            if (!String.IsNullOrEmpty(id))
+            var editUserView = new EditUserRoleView()
             {
-                ApplicationUser user = await userManager.FindByIdAsync(id);
-                if (user != null)
-                {
-                    model.Name = user.Name;
-                    model.Email = user.Email;
-                    model.ApplicationRoleId = roleManager.Roles.Single(r => r.Name == userManager.GetRolesAsync(user).Result.Single()).Id;
-                }
-            }
-            return PartialView("_EditUser", model);
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email
+            };
+
+            ViewData["Roles"] = new SelectList(_roleManager.Roles.ToList());
+
+            return View(editUserView);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditUser(string id, EditUserViewModel model)
+        public async Task<IActionResult> Edit(string id, EditUserRoleView user)
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser user = await userManager.FindByIdAsync(id);
-                if (user != null)
+                // Fast exit if trying to modify user 'a' or role 'admin'
+                var toBeAdded = user.RoleToBeAdded;
+
+                if (id != user.Id)
                 {
-                    user.Name = model.Name;
-                    user.Email = model.Email;
-                    string existingRole = userManager.GetRolesAsync(user).Result.Single();
-                    string existingRoleId = roleManager.Roles.Single(r => r.Name == existingRole).Id;
-                    IdentityResult result = await userManager.UpdateAsync(user);
-                    if (result.Succeeded)
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
                     {
-                        if (existingRoleId != model.ApplicationRoleId)
+                        var currentUser = await _userManager.FindByIdAsync(user.Id);
+                        var result = await _userManager.AddToRoleAsync(currentUser, toBeAdded);
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!UserExists(user.Id))
                         {
-                            IdentityResult roleResult = await userManager.RemoveFromRoleAsync(user, existingRole);
-                            if (roleResult.Succeeded)
-                            {
-                                ApplicationRole applicationRole = await roleManager.FindByIdAsync(model.ApplicationRoleId);
-                                if (applicationRole != null)
-                                {
-                                    IdentityResult newRoleResult = await userManager.AddToRoleAsync(user, applicationRole.Name);
-                                    if (newRoleResult.Succeeded)
-                                    {
-                                        return RedirectToAction("Index");
-                                    }
-                                }
-                            }
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
                         }
                     }
+                    return RedirectToAction("Index");
                 }
             }
-            return PartialView("_EditUser", model);
-        }*/
+
+            return View();
+        }
 
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
-            var user = await userManager.FindByIdAsync(id);
-            var roles = await userManager.GetRolesAsync(user);
+            var user = await _userManager.FindByIdAsync(id);
+            var roles = await _userManager.GetRolesAsync(user);
 
             var userView = new UserRoleView()
             {
@@ -165,10 +124,60 @@ namespace ZenithWebsite.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(string id, ApplicationUser user)
+        public async Task<IActionResult> Delete(string id, UserRoleView user)
         {
-            
+            if (ModelState.IsValid)
+            {
+                // Fast exit if trying to modify user 'a' or role 'admin'
+                var toBeDeleted = user.RoleToBeDeleted;
+                if (user.UserName == "a" && toBeDeleted.ToUpper() == "ADMIN")
+                {
+                    ModelState.AddModelError(string.Empty, "User 'a' cannot be removed from Admin");
+                    ViewData["Roles"] = new SelectList(_roleManager.Roles.ToList());
+                    return View(user);
+                }
+
+                if (id != user.Id)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        var currentUser = await _userManager.FindByIdAsync(user.Id);
+                        var result = await _userManager.RemoveFromRoleAsync(currentUser, toBeDeleted);
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!UserExists(user.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction("Index");
+                }
+            }
+
             return View();
+        }
+
+        private bool UserExists(string id)
+        {
+            return _context.Users.Any(u => u.Id == id);
+        }
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
         }
 
     }

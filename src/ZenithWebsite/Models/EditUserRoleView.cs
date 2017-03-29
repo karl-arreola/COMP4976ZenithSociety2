@@ -5,17 +5,12 @@ using System.Threading.Tasks;
 
 namespace ZenithWebsite.Models
 {
-    public class UserRoleView
+    public class EditUserRoleView
     {
         public string Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
 
-        public ICollection<string> RolesAssigned
-        {
-            get; set;
-        }
-
-        public string RoleToBeDeleted { get; set; }
+        public string RoleToBeAdded { get; set; }
     }
 }
