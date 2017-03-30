@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ZenithWebsite.Data;
 using ZenithWebsite.Models;
 
-namespace ZenithWebsite
+namespace ZenithWebsite.Controllers
 {
     public class EventsController : Controller
     {
@@ -46,7 +46,7 @@ namespace ZenithWebsite
         // GET: Events/Create
         public IActionResult Create()
         {
-            ViewData["ActivityList"] = new SelectList(_context.Activity, "ActivityId", "ActivityDescription");
+            ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityDescription");
             return View();
         }
 
