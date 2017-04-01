@@ -141,6 +141,13 @@ namespace ZenithWebsite.Controllers
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
+
+            if (role.NormalizedName == "ADMIN")
+            {
+                ModelState.AddModelError(string.Empty, "Admin role cannot be deleted");
+                return View(role);
+            }
+
             await _roleManager.DeleteAsync(role);
             await _roleManager.UpdateAsync(role);
 

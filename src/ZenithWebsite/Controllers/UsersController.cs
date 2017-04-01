@@ -130,11 +130,11 @@ namespace ZenithWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Fast exit if trying to modify user 'a' or role 'admin'
                 var toBeDeleted = user.RoleToBeDeleted;
-                if (user.UserName == "a" && toBeDeleted.ToUpper() == "ADMIN")
+
+                if (user.UserName == "a" || toBeDeleted.ToUpper() == "ADMIN")
                 {
-                    ModelState.AddModelError(string.Empty, "User 'a' cannot be removed from Admin");
+                    ModelState.AddModelError(string.Empty, "Cannot remove Admin role from User 'a'");
                     ViewData["Roles"] = new SelectList(_roleManager.Roles.ToList());
                     return View(user);
                 }

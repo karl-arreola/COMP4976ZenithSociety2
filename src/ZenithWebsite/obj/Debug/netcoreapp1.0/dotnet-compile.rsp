@@ -270,6 +270,7 @@ C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\Z
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\ResetPasswordViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\SendCodeViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\AccountViewModels\VerifyCodeViewModel.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\CustomValidations\DateToValidation.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\AddPhoneNumberViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\ChangePasswordViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\ConfigureTwoFactorViewModel.cs
@@ -279,6 +280,7 @@ C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\Z
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\RemoveLoginViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\SetPasswordViewModel.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\ManageViewModels\VerifyPhoneNumberViewModel.cs
+C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Models\PartialClasses\Event.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Services\IEmailSender.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Services\ISmsSender.cs
 C:\Users\Karl\Documents\Visual Studio 2015\Projects\COMP4976ZenithSociety2\src\ZenithWebsite\Services\MessageServices.cs
