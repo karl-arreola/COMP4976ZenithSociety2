@@ -58,7 +58,7 @@ namespace ZenithWebsite
             services.AddOpenIddict(options =>
             {
                 // Register the Entity Framework stores.
-                options.AddEntityFrameworkCoreStores<DbContext>();
+                options.AddEntityFrameworkCoreStores<ApplicationDbContext>();
                 // Register the ASP.NET Core MVC binder used by OpenIddict.
                 // Note: if you don't call this method, you won't be able to
                 // bind OpenIdConnectRequest or OpenIdConnectResponse parameters.
