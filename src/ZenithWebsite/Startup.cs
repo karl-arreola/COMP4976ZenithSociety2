@@ -46,12 +46,9 @@ namespace ZenithWebsite
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDbContext<DbContext>(options =>
             {
-                // Configure the context to use an in-memory store.
-                options.UseInMemoryDatabase();
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+
                 // Register the entity sets needed by OpenIddict.
                 // Note: use the generic overload if you need
                 // to replace the default OpenIddict entities.

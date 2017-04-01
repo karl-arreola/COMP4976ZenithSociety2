@@ -14,6 +14,6 @@ namespace ZenithWebsite.Models
         public string ActivityDescription { get; set; }
         public DateTime CreationDate { get; set; }
 
-        public List<Event> Events { get; set; }
+        //public List<Event> Events { get; set; }
     }
 }

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ZenithWebsite.Data;
 using ZenithWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ZenithWebsite.Controllers
 {
+    [Authorize]
     [Produces("application/json")]
     [Route("api/EventsApi")]
     public class EventsApiController : Controller
@@ -25,7 +27,7 @@ namespace ZenithWebsite.Controllers
         [HttpGet]
         public IEnumerable<Event> GetEvent()
         {
-            return _context.Event;
+            return _context.Event.Include(m => m.Activity);
         }
 
         // GET: api/EventsApi/5
