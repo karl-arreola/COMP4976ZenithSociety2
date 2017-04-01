@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using ZenithWebsite.Data;
 using ZenithWebsite.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace ZenithWebsite.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Authorize]
     [Produces("application/json")]
     [Route("api/EventsApi")]

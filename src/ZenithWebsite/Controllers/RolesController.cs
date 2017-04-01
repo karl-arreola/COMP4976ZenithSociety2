@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using ZenithWebsite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace ZenithWebsite.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {

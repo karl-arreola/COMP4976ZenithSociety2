@@ -75,6 +75,16 @@ namespace ZenithWebsite
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            // Add CORS with policy
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddMvc();
 
             // Add application services.
@@ -115,6 +125,10 @@ namespace ZenithWebsite
 
             // Register the OpenIddict middleware.
             app.UseOpenIddict();
+
+            // Apply CORS policy
+            app.UseCors("CorsPolicy");
+
 
             app.UseMvc(routes =>
             {
