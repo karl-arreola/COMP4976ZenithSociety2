@@ -10,9 +10,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ZenithWebsite.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -29,7 +31,7 @@ namespace ZenithWebsite.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var users = _userManager.Users;
+            var users = _userManager.Users.ToList();
 
             var usersList = new List<UserRoleView>();
             foreach (ApplicationUser usr in users)

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ZenithWebsite.Data;
 using ZenithWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ZenithWebsite
 {
+    [Authorize(Roles = "Admin")]
     public class ActivitiesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -53,10 +55,13 @@ namespace ZenithWebsite
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ActivityId,ActivityDescription,CreationDate")] Activity activity)
+        public async Task<IActionResult> Create([Bind("ActivityId,ActivityDescription")] Activity activity)
         {
             if (ModelState.IsValid)
             {
+                //automatically set as current time
+                activity.CreationDate = DateTime.Now;
+
                 _context.Add(activity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -96,6 +101,8 @@ namespace ZenithWebsite
             {
                 try
                 {
+                    _context.Entry(activity).State = EntityState.Modified;
+                    _context.Entry(activity).Property("CreationDate").IsModified = false;
                     _context.Update(activity);
                     await _context.SaveChangesAsync();
                 }

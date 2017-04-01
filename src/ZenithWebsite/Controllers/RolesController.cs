@@ -8,9 +8,11 @@ using ZenithWebsite.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using ZenithWebsite.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ZenithWebsite.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
         private readonly RoleManager<ApplicationRole> _roleManager;

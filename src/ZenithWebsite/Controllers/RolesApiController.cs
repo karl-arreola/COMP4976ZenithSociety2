@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ZenithWebsite.Data;
 using ZenithWebsite.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,7 +26,8 @@ namespace ZenithWebsite.Controllers
         [HttpGet]
         public IEnumerable<IdentityRole> Get()
         {
-            return _context.Roles.ToList();
+            return _context.Roles.Include(u => u.Users);
+            //return _context.Roles.ToList();
         }
 
         // GET api/values/5

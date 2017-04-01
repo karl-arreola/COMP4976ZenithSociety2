@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ZenithWebsite.Data;
 using ZenithWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ZenithWebsite.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EventsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -55,10 +57,15 @@ namespace ZenithWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EventId,ActivityId,CreationDate,DateFrom,DateTo,EventMadeBy,IsActive")] Event @event)
+        public async Task<IActionResult> Create([Bind("EventId,ActivityId,DateFrom,DateTo,IsActive")] Event @event)
         {
             if (ModelState.IsValid)
             {
+                //automatically set EventMadeBy to current user
+                @event.EventMadeBy = User.Identity.Name;
+                //automatically set EventMadeBy to current name
+                @event.CreationDate = DateTime.Now;
+
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -89,7 +96,7 @@ namespace ZenithWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EventId,ActivityId,CreationDate,DateFrom,DateTo,EventMadeBy,IsActive")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("EventId,ActivityId,EventMadeBy,CreationDate,DateFrom,DateTo,IsActive")] Event @event)
         {
             if (id != @event.EventId)
             {
@@ -100,6 +107,9 @@ namespace ZenithWebsite.Controllers
             {
                 try
                 {
+                    _context.Entry(@event).State = EntityState.Modified;
+                    _context.Entry(@event).Property("CreationDate").IsModified = false;
+                    _context.Entry(@event).Property("EventMadeBy").IsModified = false;
                     _context.Update(@event);
                     await _context.SaveChangesAsync();
                 }

@@ -19,11 +19,11 @@ namespace ZenithWebsite.Controllers
 
         public IActionResult Index()
         {
-            var events = _context.Event
+            /*var events = _context.Event
                           .Include(a => a.Activity)
                           .OrderBy(a => a.DateFrom);
-            return View(events.ToList());
-            
+            return View(events.ToList());*/
+            return View();
         }
 
         public IActionResult Error()
