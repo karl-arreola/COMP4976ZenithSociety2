@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using ZenithWebsite.Data;
 using ZenithWebsite.Models;
 using ZenithWebsite.Services;
+using AspNet.Security.OpenIdConnect.Primitives;
 
 namespace ZenithWebsite
 {
@@ -69,6 +70,13 @@ namespace ZenithWebsite
                 options.AllowPasswordFlow();
                 // During development, you can disable the HTTPS requirement.
                 options.DisableHttpsRequirement();
+            });
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
+                options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.Subject;
+                options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
             });
 
             services.AddIdentity<ApplicationUser, ApplicationRole>()
@@ -130,12 +138,14 @@ namespace ZenithWebsite
             app.UseCors("CorsPolicy");
 
 
-            app.UseMvc(routes =>
+            /*app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            });*/
+
+            app.UseMvcWithDefaultRoute();
 
             ActivityEventSeedData.Initialize(context);
             UserWithRoleSeedData.Initialize(context, app.ApplicationServices).Wait();
