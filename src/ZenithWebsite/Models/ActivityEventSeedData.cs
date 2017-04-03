@@ -34,17 +34,17 @@ namespace ZenithWebsite.Models
             {
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 11, 9, 0, 0),
-                    DateTo = new DateTime(2017, 3, 11, 12, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 5, 9, 0, 0),
+                    DateTo = new DateTime(2017, 4, 5, 12, 0, 0),
                     EventMadeBy = "a",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Ski Tournament").ActivityId,
-                    CreationDate = new DateTime(2017, 3, 9, 0, 0, 1)
+                    CreationDate = new DateTime(2017, 4, 3, 0, 0, 1)
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 12, 14, 0, 0),
-                    DateTo = new DateTime(2017, 3, 12, 17, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 6, 14, 0, 0),
+                    DateTo = new DateTime(2017, 4, 6, 17, 0, 0),
                     EventMadeBy = "a",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Triathalon").ActivityId,
@@ -52,8 +52,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 14, 9, 0, 0),
-                    DateTo = new DateTime(2017, 3, 14, 12, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 7, 9, 0, 0),
+                    DateTo = new DateTime(2017, 4, 7, 12, 0, 0),
                     EventMadeBy = "a",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Biking Race").ActivityId,
@@ -61,8 +61,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 14, 14, 0, 0),
-                    DateTo = new DateTime(2017, 3, 14, 17, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 8, 14, 0, 0),
+                    DateTo = new DateTime(2017, 4, 8, 17, 0, 0),
                     EventMadeBy = "Jim",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Basketball Game").ActivityId,
@@ -70,8 +70,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 16, 9, 0, 0),
-                    DateTo = new DateTime(2017, 3, 16, 12, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 10, 9, 0, 0),
+                    DateTo = new DateTime(2017, 4, 10, 12, 0, 0),
                     EventMadeBy = "Sara",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Soccer Game").ActivityId,
@@ -79,8 +79,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 16, 14, 0, 0),
-                    DateTo = new DateTime(2017, 3, 16, 17, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 10, 14, 0, 0),
+                    DateTo = new DateTime(2017, 4, 10, 17, 0, 0),
                     EventMadeBy = "a",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Triathalon").ActivityId,
@@ -88,8 +88,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 17, 9, 0, 0),
-                    DateTo = new DateTime(2017, 3, 17, 12, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 11, 9, 0, 0),
+                    DateTo = new DateTime(2017, 4, 11, 12, 0, 0),
                     EventMadeBy = "Sally",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Snowboard Tournament").ActivityId,
@@ -97,8 +97,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 13, 14, 0, 0),
-                    DateTo = new DateTime(2017, 3, 13, 17, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 15, 14, 0, 0),
+                    DateTo = new DateTime(2017, 4, 15, 17, 0, 0),
                     EventMadeBy = "Jordan",
                     IsActive = false,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Triathalon").ActivityId,
@@ -106,8 +106,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 19, 9, 0, 0),
-                    DateTo = new DateTime(2017, 3, 19, 10, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 16, 9, 0, 0),
+                    DateTo = new DateTime(2017, 4, 16, 10, 0, 0),
                     EventMadeBy = "Sally",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Basketball Game").ActivityId,
@@ -115,8 +115,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 15, 14, 0, 0),
-                    DateTo = new DateTime(2017, 3, 15, 16, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 19, 14, 0, 0),
+                    DateTo = new DateTime(2017, 4, 19, 16, 0, 0),
                     EventMadeBy = "Jordan",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Soccer Game").ActivityId,
@@ -124,8 +124,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 20, 17, 0, 0),
-                    DateTo = new DateTime(2017, 3, 20, 20, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 4, 17, 0, 0),
+                    DateTo = new DateTime(2017, 4, 4, 20, 0, 0),
                     EventMadeBy = "Jen",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Potluck").ActivityId,
@@ -133,8 +133,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 21, 19, 0, 0),
-                    DateTo = new DateTime(2017, 3, 21, 22, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 21, 19, 0, 0),
+                    DateTo = new DateTime(2017, 4, 21, 22, 0, 0),
                     EventMadeBy = "Jen",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Rock Concert").ActivityId,
@@ -142,8 +142,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 18, 13, 0, 0),
-                    DateTo = new DateTime(2017, 3, 18, 17, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 18, 13, 0, 0),
+                    DateTo = new DateTime(2017, 4, 18, 17, 0, 0),
                     EventMadeBy = "a",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Golf Tournament").ActivityId,
@@ -151,8 +151,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 15, 9, 0, 0),
-                    DateTo = new DateTime(2017, 3, 15, 10, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 10, 9, 0, 0),
+                    DateTo = new DateTime(2017, 4, 10, 10, 0, 0),
                     EventMadeBy = "a",
                     IsActive = false,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Swimming Race").ActivityId,
@@ -160,8 +160,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 16, 12, 0, 0),
-                    DateTo = new DateTime(2017, 3, 16, 13, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 16, 12, 0, 0),
+                    DateTo = new DateTime(2017, 4, 16, 13, 0, 0),
                     EventMadeBy = "a",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Doubles Tennis Game").ActivityId,
@@ -169,8 +169,8 @@ namespace ZenithWebsite.Models
                 });
                 db.Event.Add(new Event
                 {
-                    DateFrom = new DateTime(2017, 3, 15, 16, 0, 0),
-                    DateTo = new DateTime(2017, 3, 15, 18, 0, 0),
+                    DateFrom = new DateTime(2017, 4, 8, 16, 0, 0),
+                    DateTo = new DateTime(2017, 4, 8, 18, 0, 0),
                     EventMadeBy = "a",
                     IsActive = true,
                     ActivityId = db.Activity.FirstOrDefault(c => c.ActivityDescription == "Family Bowling").ActivityId,

@@ -1,9 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    HashSet<DayOfWeek> activeDays = new HashSet<DayOfWeek>();
+    List<ZenithWebsite.Models.Event> eventsThisWeek = new List<ZenithWebsite.Models.Event>();
 }
-
-<p>@ViewBag.Mon</p>
-<p>@ViewBag.Sun</p>
 
 <div class="jumbotron">
     <h2>Zenith Society</h2>

@@ -13,9 +13,4 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <Value>Server=tcp:asn.database.windows.net,1433;Initial Catalog=asn;Persist Security Info=False;User ID=karl;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
     </DestinationConnectionStrings>
   </ItemGroup>
-  <ItemGroup>
-    <EfMigrations Include="ZenithWebsite.Data.ApplicationDbContext">
-      <Value>Server=tcp:asn.database.windows.net,1433;Initial Catalog=asn;Persist Security Info=False;User ID=karl;Password=Sport479;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
-    </EfMigrations>
-  </ItemGroup>
 </Project>

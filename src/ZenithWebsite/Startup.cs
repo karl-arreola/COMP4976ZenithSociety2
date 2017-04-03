@@ -137,7 +137,6 @@ namespace ZenithWebsite
             // Apply CORS policy
             app.UseCors("CorsPolicy");
 
-
             /*app.UseMvc(routes =>
             {
                 routes.MapRoute(
